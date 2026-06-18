@@ -1,0 +1,117 @@
+.backgroundContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  overflow: hidden;
+  background-color: var(--bg-dark);
+}
+
+.canvasBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 50%, transparent 40%, #000000 90%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.blobs {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  filter: blur(90px);
+  z-index: 0;
+}
+
+.blob1 {
+  position: absolute;
+  top: 15%;
+  left: 15%;
+  width: 450px;
+  height: 450px;
+  background: rgba(148, 0, 211, 0.04);
+  border-radius: 50%;
+  animation: float 25s infinite alternate linear;
+}
+
+.blob2 {
+  position: absolute;
+  bottom: 15%;
+  right: 15%;
+  width: 550px;
+  height: 550px;
+  background: rgba(75, 0, 130, 0.04);
+  border-radius: 50%;
+  animation: float 30s infinite alternate linear reverse;
+}
+
+.blob3 {
+  position: absolute;
+  top: 45%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  width: 350px;
+  height: 350px;
+  background: rgba(184, 150, 11, 0.015);
+  border-radius: 50%;
+  animation: float 35s infinite alternate linear;
+}
+
+@keyframes float {
+  from { transform: translate(-8%, -8%) rotate(0deg); }
+  to { transform: translate(8%, 8%) rotate(360deg); }
+}
+
+/* Dev Mode Background Transformation */
+.devBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.gridLines {
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(148, 0, 211, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 0, 211, 0.05) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.devMode .blob1, .devMode .blob2 {
+  background: rgba(184, 150, 11, 0.02);
+}
+
+.devMode .blob3 {
+  background: rgba(148, 0, 211, 0.02);
+}
+
+.devMode .overlay {
+  background: radial-gradient(circle at 50% 50%, transparent 30%, #000000 95%);
+}
+
+@media (max-width: 768px) {
+  .blob1, .blob2, .blob3 {
+    width: 250px;
+    height: 250px;
+  }
+}
