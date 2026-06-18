@@ -19,6 +19,16 @@
   pointer-events: none;
 }
 
+.particleCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
 .overlay {
   position: absolute;
   top: 0;
@@ -44,7 +54,7 @@
   left: 15%;
   width: 450px;
   height: 450px;
-  background: rgba(148, 0, 211, 0.04);
+  background: rgba(var(--primary-rgb), 0.04);
   border-radius: 50%;
   animation: float 25s infinite alternate linear;
 }
@@ -55,7 +65,7 @@
   right: 15%;
   width: 550px;
   height: 550px;
-  background: rgba(75, 0, 130, 0.04);
+  background: rgba(var(--secondary-rgb), 0.04);
   border-radius: 50%;
   animation: float 30s infinite alternate linear reverse;
 }
@@ -92,8 +102,8 @@
   width: 100%;
   height: 100%;
   background-image: 
-    linear-gradient(rgba(148, 0, 211, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(148, 0, 211, 0.05) 1px, transparent 1px);
+    linear-gradient(rgba(var(--primary-rgb), 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--primary-rgb), 0.05) 1px, transparent 1px);
   background-size: 60px 60px;
 }
 
@@ -102,7 +112,7 @@
 }
 
 .devMode .blob3 {
-  background: rgba(148, 0, 211, 0.02);
+  background: rgba(var(--primary-rgb), 0.02);
 }
 
 .devMode .overlay {

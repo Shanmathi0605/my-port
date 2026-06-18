@@ -21,8 +21,10 @@ const Skills = () => {
 
   return (
     <section id="skills" className={styles.skillsSection}>
-      <div className={styles.decorativeNumber}>02</div>
-      <div className={styles.verticalTitle}>SKILLS</div>
+      <div className={styles.sectionHeading}>
+        <span className={styles.number}>02</span>
+        <h2 className={styles.verticalText}>SKILLS</h2>
+      </div>
 
       <div className={styles.container}>
         <div className={styles.header}>

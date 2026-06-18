@@ -11,7 +11,7 @@
   left: 30px;
   font-size: 5rem;
   font-weight: 900;
-  color: rgba(148, 0, 211, 0.05); /* Very subtle Purple */
+  color: rgba(var(--primary-rgb), 0.05);
   line-height: 1;
   z-index: 0;
   user-select: none;
@@ -81,9 +81,9 @@
 }
 
 .serviceCard:hover {
-  background: rgba(122, 0, 173, 0.1);
+  background: rgba(var(--primary-rgb), 0.1);
   border-color: var(--primary);
-  box-shadow: 0 10px 40px rgba(122, 0, 173, 0.2);
+  box-shadow: 0 10px 40px rgba(var(--primary-rgb), 0.2);
 }
 
 .iconWrapper {
@@ -96,7 +96,7 @@
   color: var(--primary);
   margin-bottom: 1rem;
   transition: all 0.3s ease;
-  background-color: rgba(122, 0, 173, 0.05);
+  background-color: rgba(var(--primary-rgb), 0.05);
 }
 
 .serviceCard:hover .iconWrapper {
@@ -136,7 +136,7 @@
   font-size: 15vw;
   font-weight: 900;
   color: transparent;
-  -webkit-text-stroke: 1px rgba(122, 0, 173, 0.05);
+  -webkit-text-stroke: 1px rgba(var(--primary-rgb), 0.05);
   pointer-events: none;
   z-index: 0;
   user-select: none;

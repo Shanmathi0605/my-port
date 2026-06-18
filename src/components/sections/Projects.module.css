@@ -6,30 +6,49 @@
 
 .sectionHeading {
   position: absolute;
-  left: 20px;
-  top: 100px;
+  left: 0px;
+  top: 110px;
   display: flex;
   flex-direction: column;
   align-items: center;
   z-index: 0;
-  opacity: 0.05;
+  opacity: 0.9;
   pointer-events: none;
+  animation: floatHeading 6s ease-in-out infinite;
+}
+
+@keyframes floatHeading {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
 }
 
 .number {
-  font-size: 5rem;
-  font-weight: 800;
-  line-height: 1;
-  color: var(--primary);
+  font-size: 6.5rem;
+  font-weight: 900;
+  line-height: 0.95;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 60%, rgba(var(--primary-rgb), 0.2) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 15px rgba(var(--primary-rgb), 0.4));
+  letter-spacing: -2px;
 }
 
 .verticalText {
   writing-mode: vertical-rl;
   text-transform: uppercase;
   letter-spacing: 12px;
-  font-size: 1.5rem;
-  font-weight: 900;
-  margin-top: 20px;
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin-top: 15px;
+  background: linear-gradient(180deg, var(--primary) 0%, var(--secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0.95;
+  filter: drop-shadow(0 0 8px rgba(var(--primary-rgb), 0.3));
 }
 
 .container {
@@ -63,13 +82,14 @@
   gap: 2rem;
   justify-content: center;
   width: 100%;
+  padding-left: 100px; /* Leave space for 03 PROJECTS watermark on desktop */
 }
 
 .card {
   width: 100%;
   max-width: 380px;
   background: rgba(10, 10, 10, 0.4);
-  border: 1px solid rgba(250, 204, 107, 0.1);
+  border: 1px solid var(--glass-border);
   border-radius: 20px;
   overflow: hidden;
   display: flex;
@@ -81,7 +101,7 @@
 
 .card:hover {
   border-color: var(--primary);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 15px rgba(250, 204, 107, 0.1);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 15px var(--glow-primary);
   transform: translateY(-10px);
 }
 
@@ -217,7 +237,10 @@
 @media (max-width: 968px) {
   .gallerySection { padding: 6rem 1.5rem; }
   .sectionHeading { display: none; }
-  .grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+  .grid { 
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    padding-left: 0;
+  }
   .container { padding-left: 0; padding: 0 20px; }
 }
 

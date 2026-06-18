@@ -42,7 +42,7 @@
 }
 
 .nameHighlight {
- background: linear-gradient( #5c5b5b, #9400d3);
+ background: linear-gradient(#5c5b5b, var(--primary));
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -65,7 +65,7 @@
 }
 
 .outlineCta:hover {
-  background: rgba(148, 0, 211, 0.05);
+  background: rgba(var(--primary-rgb), 0.05);
   border-color: var(--primary);
 }
 
@@ -87,8 +87,8 @@
 }
 
 .primaryCta {
-  background: linear-gradient(135deg, #9400d3, #4b0082);
-  color: black;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
 }
 
 .primaryCta:hover {
@@ -99,12 +99,12 @@
 .secondaryCta {
   background: rgba(255, 255, 255, 0.05);
   color: var(--text-main);
-  border: 1px solid rgba(148, 0, 211, 0.2);
+  border: 1px solid rgba(var(--primary-rgb), 0.2);
   backdrop-filter: blur(8px);
 }
 
 .secondaryCta:hover {
-  background: rgba(148, 0, 211, 0.05);
+  background: rgba(var(--primary-rgb), 0.05);
   border-color: var(--primary);
   transform: translateY(-5px);
 }

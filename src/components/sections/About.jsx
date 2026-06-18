@@ -23,8 +23,10 @@ const About = ({ devMode }) => {
       className={clsx(styles.aboutSection, devMode && styles.devMode)} 
       ref={containerRef}
     >
-      <div className={styles.decorativeNumber}>01</div>
-      <div className={styles.verticalTitle}>ABOUT</div>
+      <div className={styles.sectionHeading}>
+        <span className={styles.number}>01</span>
+        <h2 className={styles.verticalText}>ABOUT</h2>
+      </div>
       
       {/* Dev Mode Floating Elements */}
       {devMode && (

@@ -1,241 +1,260 @@
-.navbar {
+.logoAnchor {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  top: 1.8rem;
+  left: 2.5rem;
   z-index: 1000;
-  transition: all 0.4s ease;
-}
-
-.scrolled {
-  height: 64px;
-  background: rgba(15, 23, 42, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.navContainer {
-  width: 100%;
-  max-width: 1400px;
-  padding: 0 2.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  text-decoration: none;
 }
 
 .logoText {
   font-family: var(--font-heading);
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: 800;
-  background: linear-gradient( #f1ecec, #9400d3);
+  background: linear-gradient(135deg, #ffffff, var(--primary));
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 0 15px var(--glow-primary));
+  filter: drop-shadow(0 0 12px rgba(var(--primary-rgb), 0.3));
   letter-spacing: -1px;
+  transition: all 0.3s ease;
 }
 
-.navLinks {
-  display: flex;
-  gap: 1.8rem;
-  margin-left: 2rem;
+.logoAnchor:hover .logoText {
+  filter: drop-shadow(0 0 20px rgba(var(--primary-rgb), 0.6));
 }
 
-.navLink {
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: var(--text-dim);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  position: relative;
-}
-
-.navLink:hover {
-  color: var(--primary);
-}
-
-.navLink::after {
-  content: '';
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--primary);
-  transition: width 0.3s ease;
-}
-
-.navLink:hover::after {
-  width: 100%;
-}
-
-.socialIcons {
+.utilitiesContainer {
+  position: fixed;
+  top: 1.5rem;
+  right: 2.5rem;
+  z-index: 1000;
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1.2rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 100px;
+  background: rgba(10, 10, 16, 0.35);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.4s ease;
+}
+
+.scrolledUtils {
+  background: rgba(10, 10, 16, 0.7);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
 }
 
 .socialIcon {
   color: var(--text-dim);
+  display: flex;
+  align-items: center;
   transition: all 0.3s ease;
 }
 
 .socialIcon:hover {
   color: var(--primary);
-  transform: translateY(-3px);
-  filter: drop-shadow(0 0 5px var(--primary));
+  transform: translateY(-2px);
+  filter: drop-shadow(0 0 8px var(--primary));
 }
 
 .resumeBtn {
-  background: linear-gradient(135deg, #9400d3, #4b0082);
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
   color: white;
-  padding: 0.6rem 1.2rem;
+  padding: 0.5rem 1rem;
   border-radius: 50px;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  font-size: 0.7rem;
+  gap: 0.4rem;
+  font-size: 0.65rem;
   font-weight: 700;
   letter-spacing: 1px;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(122, 0, 173, 0.3);
+  box-shadow: 0 4px 15px rgba(var(--primary-rgb), 0.25);
+  text-decoration: none;
   white-space: nowrap;
 }
 
 .resumeBtn:hover {
-  transform: translateY(-2px) scale(1.05);
-  box-shadow: 0 8px 25px rgba(122, 0, 173, 0.5);
-  filter: brightness(1.1);
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 6px 20px rgba(var(--primary-rgb), 0.45);
 }
 
 .devToggle {
- background: linear-gradient(135deg, #9400d3, #4b0082);
+  background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
   color: var(--text-main);
-  padding: 0.6rem 1.2rem;
+  padding: 0.5rem 1rem;
   border-radius: 50px;
   font-family: inherit;
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
   white-space: nowrap;
+}
+
+.devToggle:hover {
+  background: rgba(var(--primary-rgb), 0.1);
+  border-color: var(--primary);
+  color: var(--primary);
+  box-shadow: 0 0 12px rgba(var(--primary-rgb), 0.2);
 }
 
 .devToggleActive {
   color: var(--primary);
   border-color: var(--primary);
-  box-shadow: 0 0 10px rgba(122, 0, 173, 0.3);
-  background: rgba(122, 0, 173, 0.1);
+  background: rgba(var(--primary-rgb), 0.1);
 }
 
-.mobileToggle {
-  display: none;
-  color: var(--text-main);
-  z-index: 2001;
-}
-
-@media (max-width: 1024px) {
-  .navLinks, .socialIcons {
-    display: none;
-  }
-
-  .mobileToggle {
-    display: flex;
-  }
-}
-
-@media (max-width: 640px) {
-  .navContainer {
-    padding: 0 1.5rem;
-  }
-  
-  .logoText {
-    font-size: 1.25rem;
-  }
-}
-
-.mobileMenu {
+/* Bottom Capsule Dock */
+.bottomDock {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background: rgba(15, 23, 42, 0.95);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  z-index: 2000;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  padding: 0.75rem 1.8rem;
+  border-radius: 100px;
+  background: rgba(10, 10, 16, 0.45);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.45), 
+              inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transition: all 0.3s ease;
+}
+
+.dockLinks {
+  display: flex;
+  align-items: center;
+  gap: 2.2rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dockItem {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 38px;
+  height: 38px;
 }
 
-.mobileMenuContent {
+.dockLink {
+  color: var(--text-dim);
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
-}
-
-.closeButton {
-  position: absolute;
-  top: 2rem;
-  right: 2rem;
-  color: var(--text-main);
-  background: none;
-  border: none;
-  cursor: pointer;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
   transition: all 0.3s ease;
-  z-index: 2005;
+  position: relative;
+  text-decoration: none;
 }
 
-.closeButton:hover {
-  transform: rotate(90deg);
-  color: var(--primary);
+.dockLink:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.06);
 }
 
-
-.mobileNavLink {
-  font-family: var(--font-heading);
-  font-size: clamp(1.5rem, 8vw, 2.25rem);
-  font-weight: 800;
-  color: var(--text-main);
-  text-transform: uppercase;
-  transition: all 0.3s ease;
+.activeLink {
+  color: var(--primary) !important;
 }
 
-.mobileNavLink:hover {
-  color: var(--primary);
-  transform: skewX(-10deg);
-  text-shadow: 10px 0 20px var(--glow-primary);
+.dockIcon {
+  position: relative;
+  z-index: 2;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.mobileSocials {
-  display: flex;
-  gap: 2rem;
-  margin-top: 2rem;
+.dockLink:hover .dockIcon {
+  transform: scale(1.18);
 }
 
-.menuDecorative {
+.activeDot {
   position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%);
-  font-family: var(--font-heading);
-  font-size: 10vw;
-  font-weight: 900;
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.05);
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--primary);
+  box-shadow: 0 0 12px var(--primary);
   pointer-events: none;
-  writing-mode: vertical-rl;
+  z-index: 1;
+}
+
+/* Tooltip Above the Icon */
+.tooltip {
+  position: absolute;
+  bottom: 3.8rem;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.45rem 1.1rem;
+  border-radius: 20px;
+  background: rgba(10, 10, 16, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35), 
+              0 0 15px rgba(var(--primary-rgb), 0.1);
+  pointer-events: none;
+  z-index: 100;
+}
+
+.tooltipText {
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #ffffff;
   text-transform: uppercase;
-  letter-spacing: 2rem;
-  z-index: -1;
-  user-select: none;
+  letter-spacing: 2px;
+  white-space: nowrap;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .bottomDock {
+    bottom: 1.5rem;
+    padding: 0.6rem 1.4rem;
+  }
+  
+  .dockLinks {
+    gap: 1.8rem;
+  }
+
+  .tooltip {
+    display: none !important; /* Hide tooltips on mobile/tablet to keep tap action clean */
+  }
+
+  .logoAnchor {
+    top: 1.2rem;
+    left: 1.5rem;
+  }
+
+  .logoText {
+    font-size: 1.35rem;
+  }
+
+  .utilitiesContainer {
+    top: 1rem;
+    right: 1.5rem;
+    padding: 0.3rem 0.6rem;
+    gap: 0.8rem;
+  }
+
+  .resumeBtn span {
+    display: none; /* Hide resume text on small mobile screens */
+  }
+
+  .resumeBtn {
+    padding: 0.5rem;
+    border-radius: 50%;
+  }
 }

@@ -3,19 +3,26 @@
 :root {
   --bg-dark: #000000;
   --bg-darker: #050505;
-  --primary: #9400d3; /* Purple */
-  --secondary: #4b0082; 
-  --accent: #e0b0ff; 
+
+  /* Burgundy Red Theme - #800020 */
+  --primary-rgb: 128, 0, 32; /* Burgundy Red #800020 */
+  --secondary-rgb: 74, 0, 15; /* Deep Dark Burgundy #4a000f */
+  --accent-rgb: 255, 143, 163; /* Soft Rose Accent #ff8fa3 */
+
+  --primary: rgb(var(--primary-rgb));
+  --secondary: rgb(var(--secondary-rgb));
+  --accent: rgb(var(--accent-rgb));
+  --max-width: 1200px; 
   
-  --primary-dev: #7a00ad; 
-  --secondary-dev: #4b0082; 
-  --accent-dev: #e0b0ff; 
+  --primary-dev: #800020; 
+  --secondary-dev: #4a000f; 
+  --accent-dev: #ff8fa3; 
   --text-main: #FFFFFF;
   --text-dim: #A3A3A3;
   --glass: rgba(10, 10, 10, 0.7);
-  --glass-border: rgba(148, 0, 211, 0.2);
-  --glow-primary: rgba(148, 0, 211, 0.3);
-  --glow-secondary: rgba(75, 0, 130, 0.3);
+  --glass-border: rgba(var(--primary-rgb), 0.2);
+  --glow-primary: rgba(var(--primary-rgb), 0.35);
+  --glow-secondary: rgba(var(--secondary-rgb), 0.3);
   
   --font-heading: 'Outfit', sans-serif;
   --font-body: 'Inter', sans-serif;

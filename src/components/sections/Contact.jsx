@@ -26,8 +26,10 @@ const Contact = () => {
 
   return (
     <section id="contact" className={styles.contactSection}>
-      <div className={styles.decorativeNumber}>04</div>
-      <div className={styles.verticalTitle}>CONTACT</div>
+      <div className={styles.sectionHeading}>
+        <span className={styles.number}>04</span>
+        <h2 className={styles.verticalText}>CONTACT</h2>
+      </div>
       <div className={styles.container}>
         <div className={styles.header}>
           <motion.h2

@@ -62,18 +62,18 @@
 
 .retryButton {
   padding: 0.75rem 2rem;
-  background: linear-gradient(to right, #6366f1, #3b82f6);
+  background: linear-gradient(to right, var(--primary), var(--secondary));
   color: white;
   border: none;
   border-radius: 0.75rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 14px 0 rgba(79, 70, 229, 0.39);
+  box-shadow: 0 4px 14px 0 rgba(var(--primary-rgb), 0.39);
 }
 
 .retryButton:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(79, 70, 229, 0.23);
+  box-shadow: 0 6px 20px rgba(var(--primary-rgb), 0.23);
   filter: brightness(1.1);
 }

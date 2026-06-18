@@ -1,4 +1,4 @@
-/* About.module.css - Purple Edition */
+/* About.module.css - Burgundy Red Edition */
 .aboutSection {
   padding: 10rem 2rem;
  
@@ -21,10 +21,53 @@
   left: 30px;
   font-size: 5rem;
   font-weight: 900;
-  color: rgba(148, 0, 211, 0.12); /* Increased Visibility */
+  color: rgba(var(--primary-rgb), 0.12);
   line-height: 1;
   z-index: 0;
   user-select: none;
+}
+
+.sectionHeading {
+  position: absolute;
+  left: 0px;
+  top: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 0;
+  opacity: 0.9;
+  pointer-events: none;
+  animation: floatHeading 6s ease-in-out infinite;
+}
+
+@keyframes floatHeading {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.number {
+  font-size: 6.5rem;
+  font-weight: 900;
+  line-height: 0.95;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 60%, rgba(var(--primary-rgb), 0.2) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 15px rgba(var(--primary-rgb), 0.4));
+  letter-spacing: -2px;
+}
+
+.verticalText {
+  writing-mode: vertical-rl;
+  text-transform: uppercase;
+  letter-spacing: 12px;
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin-top: 15px;
+  background: linear-gradient(180deg, var(--primary) 0%, var(--secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0.95;
+  filter: drop-shadow(0 0 8px rgba(var(--primary-rgb), 0.3));
 }
 
 .verticalTitle {
@@ -84,22 +127,22 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  box-shadow: 0 10px 40px rgba(122, 0, 173, 0.15);
+  box-shadow: 0 10px 40px rgba(var(--primary-rgb), 0.15);
   z-index: 10;
 }
 
 .badgeF {
   width: 50px;
   height: 50px;
-  background: linear-gradient(135deg, #9400d3, #4b0082);
-  color: black;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.5rem;
   font-weight: 900;
   border-radius: 12px;
-  box-shadow: 0 5px 15px rgba(122, 0, 173, 0.3);
+  box-shadow: 0 5px 15px rgba(var(--primary-rgb), 0.3);
 }
 
 .badgeText {
@@ -204,8 +247,8 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  background: rgba(122, 0, 173, 0.03);
-  border: 1px solid rgba(122, 0, 173, 0.1);
+  background: rgba(var(--primary-rgb), 0.03);
+  border: 1px solid rgba(var(--primary-rgb), 0.1);
   padding: 0.75rem 1.5rem;
   border-radius: 20px;
   color: var(--text-dim);
@@ -214,7 +257,7 @@
 }
 
 .capsule:hover {
-  background: rgba(122, 0, 173, 0.08);
+  background: rgba(var(--primary-rgb), 0.08);
   border-color: var(--primary);
   color: var(--primary);
 }
@@ -246,7 +289,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  border: 1px solid rgba(122, 0, 173, 0.3);
+  border: 1px solid rgba(var(--primary-rgb), 0.3);
   pointer-events: none;
 }
 
@@ -269,7 +312,7 @@
   left: 0;
   width: 100%;
   height: 2px;
-  background: rgba(122, 0, 173, 0.2);
+  background: rgba(var(--primary-rgb), 0.2);
   box-shadow: 0 0 10px var(--primary);
   animation: scan 3s infinite linear;
 }
@@ -352,7 +395,7 @@
     flex-wrap: wrap;
   }
 
-  .decorativeNumber, .verticalTitle {
+  .decorativeNumber, .verticalTitle, .sectionHeading {
     display: none;
   }
 }

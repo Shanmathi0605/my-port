@@ -18,12 +18,11 @@ const galleryData = [
 const Gallery = () => {
   return (
     <section className={styles.gallerySection} id="projects">
-      {/* Background Decor */}
-      <div className={styles.sectionHeading}>
-        <span className={styles.number}>03</span>
-        <h2 className={styles.verticalText}>PROJECTS</h2>
-      </div>
-
+        {/* Background Decor */}
+        <div className={styles.sectionHeading}>
+          <span className={styles.number}>03</span>
+          <h2 className={styles.verticalText}>PROJECTS</h2>
+        </div>
       <div className={styles.container}>
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}

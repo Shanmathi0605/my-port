@@ -21,7 +21,7 @@
   border-radius: 50%;
   z-index: 9999;
   pointer-events: none;
-  background: rgba(99, 102, 241, 0.05);
+  background: rgba(var(--primary-rgb), 0.05);
   backdrop-filter: blur(2px);
 }
 

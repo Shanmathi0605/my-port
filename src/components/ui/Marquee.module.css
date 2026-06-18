@@ -3,11 +3,11 @@
   width: 100%;
   background-color: var(--primary);
   color: #000;
-  padding: 1.5rem 0;
+  padding: 0.75rem 0;
   overflow: hidden;
   z-index: 50;
   transform: rotate(-2deg) scale(1.05);
-  box-shadow: 0 10px 40px rgba(148, 0, 211, 0.4);
+  box-shadow: 0 10px 40px rgba(var(--primary-rgb), 0.4);
 }
 
 .marqueeTrack {
