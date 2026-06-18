@@ -6,9 +6,10 @@ import Loader from './components/ui/Loader';
 import Hero from './components/sections/Hero';
 import About from './components/sections/About';
 import Skills from './components/sections/Skills';
-import Skill from './components/sections/Skills'; // Fix existing typing if necessary, but keep as is
 import Marquee from './components/ui/Marquee';
 import Projects from './components/sections/Projects';
+import Experience from './components/sections/Experience';
+
 import Contact from './components/sections/Contact';
 import Footer from './components/layout/Footer';
 import DevExperience from './components/sections/DevExperience';
@@ -52,6 +53,7 @@ function App() {
   return (
     <>
       <Loader isLoading={isLoading} />
+      <CustomCursor />
       <motion.div
         className="scroll-progress-bar"
         style={{ scaleX }}
@@ -75,7 +77,9 @@ function App() {
                 <Marquee />
                 <About devMode={false} />
                 <Skills devMode={false} />
+                <Experience />
                 <Projects devMode={false} />
+
                 <Contact devMode={false} />
                 <Footer devMode={false} />
               </motion.div>

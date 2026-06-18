@@ -37,7 +37,7 @@ const Services = () => {
           <motion.p 
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             className={styles.eyebrow}
           >
             What I Do
@@ -45,7 +45,7 @@ const Services = () => {
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             className={styles.title}
           >
             Premium Digital <span className="text-gradient">Solutions.</span>
@@ -59,7 +59,7 @@ const Services = () => {
               className={styles.serviceCard}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               whileHover={{ y: -10 }}
             >

@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import styles from './About.module.css';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ChevronRight, Mail, MapPin, Terminal, Cpu, Layout, Globe } from 'lucide-react';
-import shanImg from '../../assets/shan.jpg';
+import shanImg from '../../assets/shan.png';
 import { clsx } from 'clsx';
 
 const About = ({ devMode }) => {
@@ -42,6 +42,10 @@ const About = ({ devMode }) => {
           <motion.div 
             className={styles.imageSide}
             style={{ y: imageY, rotate: rotateImg }}
+            initial={{ opacity: 0, x: -60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 0.7, ease: 'easeOut' }}
           >
             <div className={styles.imageOverlay}>
               <img src={shanImg} alt="Shanmathi R B" className={styles.profileImg} />
@@ -65,9 +69,10 @@ const About = ({ devMode }) => {
                 className={styles.juniorBadge}
                 initial={{ x: 20, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
+                viewport={{ once: false, amount: 0.5 }}
                 transition={{ delay: 0.5 }}
               >
-                <div className={styles.badgeF}>{devMode ? <Terminal size={20} /> : "F"}</div>
+                <div className={styles.badgeF}>{devMode ? <Terminal size={20} /> : "FS"}</div>
                 <div className={styles.badgeText}>
                  
                   <strong>{devMode ? "USER_PROFILER" : "DEVELOPER"}</strong>
@@ -79,6 +84,10 @@ const About = ({ devMode }) => {
           <motion.div 
             className={styles.textSide}
             style={{ y: contentY }}
+            initial={{ opacity: 0, x: 60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 0.7, ease: 'easeOut', delay: 0.15 }}
           >
             <h2 className={styles.mainHeading}>
                {devMode ? "> SYSTEM_PROFILE" : "I build things for the web."}
@@ -94,7 +103,7 @@ const About = ({ devMode }) => {
                   <li><ChevronRight size={16} /> React JS</li>
                   <li><ChevronRight size={16} /> Next JS</li>
                   <li><ChevronRight size={16} /> Node.js & Express</li>
-                  <li><ChevronRight size={16} /> MongoDB / SQL</li>
+                  <li><ChevronRight size={16} /> MongoDB </li>
                   <li><ChevronRight size={16} /> JavaScript (ES6+)</li>
                 </ul>
               </div>

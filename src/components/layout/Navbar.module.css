@@ -108,6 +108,68 @@
   background: rgba(var(--primary-rgb), 0.1);
 }
 
+.themeToggle {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-main);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.themeToggle:hover {
+  background: rgba(var(--primary-rgb), 0.1);
+  border-color: var(--primary);
+  color: var(--primary);
+  box-shadow: 0 0 12px rgba(var(--primary-rgb), 0.2);
+}
+
+/* Light theme overrides for Navbar components */
+[data-theme='light'] .utilitiesContainer {
+  background: rgba(255, 255, 255, 0.7);
+  border-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme='light'] .bottomDock {
+  background: rgba(255, 255, 255, 0.75);
+  border-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme='light'] .dockLink:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: #000000;
+}
+
+[data-theme='light'] .tooltip {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='light'] .tooltipText {
+  color: #111827;
+}
+
+[data-theme='light'] .devToggle {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: rgba(0, 0, 0, 0.08);
+  color: #111827;
+}
+
+[data-theme='light'] .themeToggle {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: rgba(0, 0, 0, 0.08);
+  color: #111827;
+}
+
 /* Bottom Capsule Dock */
 .bottomDock {
   position: fixed;
@@ -256,5 +318,34 @@
   .resumeBtn {
     padding: 0.5rem;
     border-radius: 50%;
+  }
+}
+
+@media (max-width: 480px) {
+  .bottomDock {
+    bottom: 1rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .dockLinks {
+    gap: 1.4rem;
+  }
+
+  .dockItem {
+    width: 32px;
+    height: 32px;
+  }
+
+  .devToggle {
+    display: none; /* Hide dev mode toggle on very small screens */
+  }
+
+  .logoText {
+    font-size: 1.2rem;
+  }
+
+  .utilitiesContainer {
+    gap: 0.6rem;
+    padding: 0.25rem 0.5rem;
   }
 }

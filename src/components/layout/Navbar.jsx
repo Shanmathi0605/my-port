@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import styles from './Navbar.module.css';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Home, User, Cpu, Briefcase, Mail, FileDown, Github } from 'lucide-react';
+import { Home, User, Cpu, Briefcase, Mail, FileDown, Github, Sun, Moon, Map } from 'lucide-react';
 import { clsx } from 'clsx';
 
 const navLinks = [
   { name: 'Home', href: '#home', icon: Home },
   { name: 'About', href: '#about', icon: User },
   { name: 'Skills', href: '#skills', icon: Cpu },
+  { name: 'Journey', href: '#experience', icon: Map },
   { name: 'Projects', href: '#projects', icon: Briefcase },
   { name: 'Contact', href: '#contact', icon: Mail },
 ];
@@ -16,6 +17,23 @@ const Navbar = ({ devMode, toggleDevMode }) => {
   const [activeSection, setActiveSection] = useState('home');
   const [hoveredLink, setHoveredLink] = useState(null);
   const [scrolled, setScrolled] = useState(false);
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem('theme') || 'dark';
+  });
+
+  useEffect(() => {
+    if (theme === 'light') {
+      document.documentElement.setAttribute('data-theme', 'light');
+      localStorage.setItem('theme', 'light');
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+      localStorage.setItem('theme', 'dark');
+    }
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(prev => prev === 'dark' ? 'light' : 'dark');
+  };
 
   // Monitor scroll for styling
   useEffect(() => {
@@ -28,7 +46,7 @@ const Navbar = ({ devMode, toggleDevMode }) => {
 
   // Monitor scroll for active section
   useEffect(() => {
-    const sectionIds = ['home', 'about', 'skills', 'projects', 'contact'];
+    const sectionIds = ['home', 'about', 'skills', 'experience', 'projects', 'contact'];
     
     const observerOptions = {
       root: null,
@@ -75,7 +93,7 @@ const Navbar = ({ devMode, toggleDevMode }) => {
       {/* Utilities Container anchored at Top-Right */}
       {!devMode && (
         <div className={clsx(styles.utilitiesContainer, scrolled && styles.scrolledUtils)}>
-          <a href="/Shan.pdf.pdf" download className={styles.resumeBtn} title="Download Resume" target="_blank" rel="noreferrer">
+          <a href="/shanma.pdf" download className={styles.resumeBtn} title="Download Resume" target="_blank" rel="noreferrer">
             <FileDown size={14} /> <span>RESUME</span>
           </a>
           <button 
@@ -85,6 +103,16 @@ const Navbar = ({ devMode, toggleDevMode }) => {
           >
             DEV ON
           </button>
+
+          <button 
+            type="button" 
+            className={styles.themeToggle} 
+            onClick={toggleTheme}
+            title={theme === 'dark' ? "Switch to Light Mode" : "Switch to Dark Mode"}
+          >
+            {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
+          </button>
+
           <a href="https://github.com/Shanmathi0605" target="_blank" rel="noreferrer" className={styles.socialIcon}>
             <Github size={18} />
           </a>

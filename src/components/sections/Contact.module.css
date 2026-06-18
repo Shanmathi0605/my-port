@@ -259,6 +259,305 @@
   user-select: none;
 }
 
+.formOuterContainer {
+  width: 100%;
+}
+
+.tabSelector {
+  display: flex;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 0.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.tabBtn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-dim);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tabBtn:hover {
+  color: var(--text-main);
+}
+
+.activeTabBtn {
+  color: var(--accent);
+  background: rgba(var(--primary-rgb), 0.15);
+  box-shadow: inset 0 0 10px rgba(var(--primary-rgb), 0.2);
+}
+
+.modeContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+}
+
+/* API Console Client Styles */
+.apiEndpointRow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.apiMethod {
+  background: var(--primary);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+}
+
+.apiUrl {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.8rem;
+  color: var(--text-main);
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.apiHeadersBox {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background: rgba(0, 0, 0, 0.15);
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.apiSubLabel {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+
+.apiHeaderItem {
+  display: flex;
+  gap: 0.5rem;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.75rem;
+}
+
+.apiHeaderKey {
+  color: #64748b;
+}
+
+.apiHeaderVal {
+  color: #e2e8f0;
+}
+
+.apiJsonFields {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 1.25rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.jsonFieldRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.jsonKey {
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding-top: 0.6rem;
+  min-width: 100px;
+}
+
+.apiJsonInput,
+.apiJsonTextarea {
+  flex-grow: 1;
+  background: rgba(255, 255, 255, 0.02) !important;
+  border: 1px solid rgba(var(--primary-rgb), 0.15) !important;
+  border-radius: 8px !important;
+  padding: 0.5rem 0.75rem !important;
+  font-family: 'Courier New', Courier, monospace !important;
+  font-size: 0.85rem !important;
+  color: #e2e8f0 !important;
+  transition: all 0.2s ease !important;
+}
+
+.apiJsonInput:focus,
+.apiJsonTextarea:focus {
+  outline: none !important;
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 10px rgba(var(--primary-rgb), 0.2) !important;
+  background: rgba(var(--primary-rgb), 0.04) !important;
+}
+
+.apiJsonTextarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.apiSubmitBtn {
+  padding: 0.8rem 2rem;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  border: 1px solid rgba(var(--primary-rgb), 0.2);
+  transition: all 0.2s ease;
+}
+
+.apiSubmitBtn:hover:not(:disabled) {
+  filter: brightness(1.1);
+  box-shadow: 0 0 20px rgba(var(--primary-rgb), 0.3);
+}
+
+.apiSubmitBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.apiResponseWrapper {
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.responseBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: var(--text-dim);
+}
+
+.responseStatusBadge {
+  background: rgba(39, 201, 63, 0.15);
+  color: #27c93f;
+  border: 1px solid rgba(39, 201, 63, 0.3);
+  padding: 0.05rem 0.4rem;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 0.65rem;
+}
+
+.badgeErr {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.apiConsoleLogs {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.75rem;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 1rem;
+  min-height: 100px;
+  max-height: 200px;
+  overflow-y: auto;
+  text-align: left;
+  margin: 0;
+}
+
+.apiConsoleLogs code {
+  color: #e2e8f0;
+  line-height: 1.45;
+  white-space: pre-wrap;
+}
+
+/* Light theme overrides for Contact components */
+[data-theme='light'] .formWrapper {
+  background: rgba(255, 255, 255, 0.75);
+  border-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme='light'] .apiEndpointRow {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme='light'] .apiUrl {
+  color: #111827;
+}
+
+[data-theme='light'] .apiHeadersBox {
+  background: rgba(0, 0, 0, 0.02);
+  border-color: rgba(0, 0, 0, 0.03);
+}
+
+[data-theme='light'] .apiJsonFields {
+  background: rgba(0, 0, 0, 0.02);
+  border-color: rgba(0, 0, 0, 0.03);
+}
+
+[data-theme='light'] .apiJsonInput,
+[data-theme='light'] .apiJsonTextarea {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  color: #111827 !important;
+}
+
+[data-theme='light'] .apiConsoleLogs {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme='light'] .apiConsoleLogs code {
+  color: #111827;
+}
+
+[data-theme='light'] .tabSelector {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme='light'] .responseBar {
+  background: rgba(0, 0, 0, 0.02);
+  border-bottom-color: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme='light'] .apiHeadersBox,
+[data-theme='light'] .apiJsonFields,
+[data-theme='light'] .apiResponseWrapper {
+  border-color: rgba(0, 0, 0, 0.06);
+}
+
 @media (max-width: 1024px) {
   .title { font-size: 3rem; }
   .grid { gap: 3rem; }
@@ -267,7 +566,7 @@
 @media (max-width: 968px) {
   .contactSection { padding: 6rem 1.5rem; }
   .decorativeNumber, .verticalTitle, .englishBack, .sectionHeading { display: none; }
-  .grid { grid-template-columns: 1fr; gap: 4rem; }
+  .grid { grid-template-columns: 1fr; gap: 3rem; }
   .header { margin-bottom: 3rem; }
   .infoWrapper { align-items: center; text-align: center; }
   .infoItem { flex-direction: column; gap: 1rem; }
@@ -275,12 +574,23 @@
 }
 
 @media (max-width: 768px) {
-  .formWrapper { padding: 2rem; border-radius: 24px; }
-  .title { font-size: 2.5rem; }
-  .submitBtn { width: 100%; }
+  .contactSection { padding: 5.5rem 1.2rem; }
+  .formWrapper { padding: 1.75rem; border-radius: 20px; }
+  .title { font-size: 2.2rem; }
+  .subtitle { font-size: 0.95rem; }
+  .submitBtn { width: 100%; justify-content: center; }
+  .tabSelector { flex-wrap: wrap; gap: 0.4rem; }
+  .tabBtn { padding: 0.45rem 1rem; font-size: 0.78rem; }
+  .infoText h4 { font-size: 1rem; }
+  .infoText p { font-size: 0.85rem; }
 }
 
 @media (max-width: 480px) {
-  .formWrapper { padding: 1.5rem; }
-  .inputGroup input, .inputGroup textarea { padding: 0.8rem 1rem; }
+  .contactSection { padding: 5rem 1rem; }
+  .formWrapper { padding: 1.25rem; border-radius: 16px; }
+  .inputGroup input, .inputGroup textarea { padding: 0.75rem 0.9rem; font-size: 0.85rem; }
+  .title { font-size: 1.9rem; }
+  .iconBox { width: 44px; height: 44px; }
+  .grid { gap: 2.5rem; }
 }
+

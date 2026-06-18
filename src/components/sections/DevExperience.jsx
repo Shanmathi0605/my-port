@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import styles from './DevExperience.module.css';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import shanImg from '../../assets/shan.jpg';
+import shanImg from '../../assets/shan.png';
 import img1 from '../../assets/chair1.jpg';
 import img2 from '../../assets/flowers.jpg';
 import img3 from '../../assets/shofa.jpg';
@@ -178,7 +178,7 @@ const DevExperience = ({ toggleDevMode, goToContact }) => {
                   rel="noreferrer"
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: false }}
                   transition={{ delay: index * 0.1 }}
                   whileHover={{ 
                     y: -15,

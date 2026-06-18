@@ -30,6 +30,19 @@
   scroll-behavior: smooth;
 }
 
+[data-theme='light'] {
+  --bg-dark: #F9FAFB;
+  --bg-darker: #FFFFFF;
+  --text-main: #111827;
+  --text-dim: #4B5563;
+  --glass: rgba(255, 255, 255, 0.8);
+  --glass-border: rgba(var(--primary-rgb), 0.12);
+  --glow-primary: rgba(var(--primary-rgb), 0.12);
+  --glow-secondary: rgba(var(--secondary-rgb), 0.08);
+  --accent-rgb: 162, 28, 62;
+  --accent: rgb(var(--accent-rgb));
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -38,12 +51,26 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Hide native cursor on desktop — butterfly takes over */
+@media (min-width: 769px) {
+  *, *::before, *::after {
+    cursor: none !important;
+  }
+}
+
 body {
   background-color: var(--bg-dark);
   color: var(--text-main);
   font-family: var(--font-body);
   overflow-x: hidden;
   line-height: 1.6;
+}
+
+/* Global section padding variable */
+:root {
+  --section-padding: 8rem 2rem 8rem 7rem;
+  --section-padding-sm: 6rem 1.5rem;
+  --section-padding-xs: 5rem 1.2rem;
 }
 
 /* Cinematic Noise Effect */

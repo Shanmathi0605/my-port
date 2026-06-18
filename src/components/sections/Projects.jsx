@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Projects.module.css";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import img1 from "../../assets/chair1.jpg";
 import img2 from "../../assets/flowers.jpg";
 import img3 from "../../assets/shofa.jpg";
@@ -8,73 +8,154 @@ import img4 from "../../assets/crm.jpg";
 import img5 from "../../assets/shoes.jpg";
 
 const galleryData = [
-  { img: img1, title: "Modern Furniture", category: "MERN E-Commerce", link: "https://e-commerce-elegant.netlify.app/" },
-  { img: img2, title: "Floral Boutique", category: "Shopify Store", link: "https://flowerproject-store.netlify.app/" },
-  { img: img3, title: "Addine Decor", category: "Interior Design", link: "https://addina-project.netlify.app/" },
-  { img: img4, title: "NextGen CRM", category: "Full-Stack SaaS", link: "https://management-crm.netlify.app/" },
-  { img: img5, title: "Elite Kicks", category: "Shoe Store", link: "https://shoes-task.netlify.app/" },
+  { 
+    img: img1, 
+    title: "Modern Furniture", 
+    category: "MERN E-Commerce", 
+    filter: "full-stack",
+    description: "A sleek MERN stack e-commerce app with secure payment integrations, JWT authentication, and automated admin dashboards.",
+    link: "https://e-commerce-elegant.netlify.app/" 
+  },
+  { 
+    img: img2, 
+    title: "Floral Boutique", 
+    category: "Shopify Store", 
+    filter: "e-commerce",
+    description: "High-conversion custom storefront built for floral ordering, featuring automated local delivery schedules and carts.",
+    link: "https://flowerproject-store.netlify.app/" 
+  },
+  { 
+    img: img3, 
+    title: "Addine Decor", 
+    category: "Interior Design", 
+    filter: "frontend",
+    description: "Premium interior design showcase leveraging React and smooth scroll animations for a clean, editorial look.",
+    link: "https://addina-project.netlify.app/" 
+  },
+  { 
+    img: img4, 
+    title: "NextGen CRM", 
+    category: "Full-Stack SaaS", 
+    filter: "full-stack",
+    description: "Enterprise dashboard for client relations featuring analytics widgets, team action logs, and modern UX design.",
+    link: "https://management-crm.netlify.app/" 
+  },
+  { 
+    img: img5, 
+    title: "Elite Kicks", 
+    category: "Shoe Store", 
+    filter: "e-commerce",
+    description: "High-performance online sneaker store featuring animated transitions, dynamic multi-attribute filters, and custom cart states.",
+    link: "https://shoes-task.netlify.app/" 
+  },
 ];
 
+const filters = ["all", "full-stack", "frontend", "e-commerce"];
+
 const Gallery = () => {
+  const [activeFilter, setActiveFilter] = useState("all");
+
+  const filtered = activeFilter === "all"
+    ? galleryData
+    : galleryData.filter(p => p.filter === activeFilter);
+
   return (
     <section className={styles.gallerySection} id="projects">
         {/* Background Decor */}
         <div className={styles.sectionHeading}>
-          <span className={styles.number}>03</span>
+          <span className={styles.number}>04</span>
           <h2 className={styles.verticalText}>PROJECTS</h2>
         </div>
       <div className={styles.container}>
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           className={styles.header}
         >
           <h2 className="gradient-text">Recent Work</h2>
           <p className={styles.subtitle}>A collection of projects built with precision and passion</p>
         </motion.div>
 
-        <div className={styles.grid}>
-          {galleryData.map((project, index) => (
-            <motion.a
-              key={index}
-              href={project.link}
-              target="_blank"
-              rel="noreferrer"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              whileHover={{ 
-                y: -10,
-              }}
-              className={styles.card}
+        {/* Filter Tabs */}
+        <div className={styles.filterRow}>
+          {filters.map(f => (
+            <button
+              key={f}
+              className={`${styles.filterBtn} ${activeFilter === f ? styles.activeFilter : ""}`}
+              onClick={() => setActiveFilter(f)}
             >
-              <div className={styles.imageOverlay}>
-                <img src={project.img} alt={project.title} className={styles.cardImg} />
-                <div className={styles.index}>0{index + 1}</div>
-                
-                <div className={styles.hoverTarget}>
-                   <div className={styles.viewPrompt}>
-                      <span>VIEW PROJECT</span>
-                      <div className={styles.line}></div>
-                   </div>
-                </div>
-              </div>
-
-              <div className={styles.cardFooter}>
-                <div className={styles.textStack}>
-                  <h3 className={styles.title}>{project.title}</h3>
-                </div>
-                <div className={styles.arrowIcon}>
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </div>
-              </div>
-            </motion.a>
+              {f === "all" ? "All" : f === "full-stack" ? "Full-Stack" : f === "frontend" ? "Frontend" : "E-Commerce"}
+            </button>
           ))}
         </div>
+
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeFilter}
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -15 }}
+            transition={{ duration: 0.3 }}
+            className={styles.grid}
+          >
+            {filtered.map((project, index) => {
+              // Alternating: left → right → center → repeat
+              const dir = index % 3;
+              const initial =
+                dir === 0
+                  ? { opacity: 0, x: -80, y: 10 }   // from left
+                  : dir === 1
+                  ? { opacity: 0, x: 80, y: 10 }    // from right
+                  : { opacity: 0, scale: 0.85, y: 20 }; // from center
+
+              const inView =
+                dir === 2
+                  ? { opacity: 1, scale: 1, y: 0 }
+                  : { opacity: 1, x: 0, y: 0 };
+
+              return (
+              <motion.a
+                key={project.title}
+                href={project.link}
+                target="_blank"
+                rel="noreferrer"
+                initial={initial}
+                whileInView={inView}
+                viewport={{ once: false, amount: 0.15 }}
+                transition={{ duration: 0.6, delay: index * 0.07, ease: [0.25, 0.46, 0.45, 0.94] }}
+                whileHover={{ y: -10 }}
+                className={styles.card}
+              >
+                <div className={styles.imageOverlay}>
+                  <img src={project.img} alt={project.title} className={styles.cardImg} />
+                  <div className={styles.index}>0{index + 1}</div>
+                  
+                  <div className={styles.hoverTarget}>
+                     <div className={styles.viewPrompt}>
+                        <span>VIEW PROJECT</span>
+                        <div className={styles.line}></div>
+                     </div>
+                  </div>
+                </div>
+
+                <div className={styles.cardFooter}>
+                  <div className={styles.textStack}>
+                    <span className={styles.category}>{project.category}</span>
+                    <h3 className={styles.title}>{project.title}</h3>
+                    <p className={styles.description}>{project.description}</p>
+                  </div>
+                  <div className={styles.arrowIcon}>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
+                </div>
+              </motion.a>
+              );
+            })}
+          </motion.div>
+        </AnimatePresence>
       </div>
     </section>
   );

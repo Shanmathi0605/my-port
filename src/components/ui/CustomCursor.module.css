@@ -1,32 +1,44 @@
-.cursor {
+.butterfly {
   position: fixed;
   top: 0;
   left: 0;
-  width: 8px;
-  height: 8px;
-  background-color: var(--primary);
-  border-radius: 50%;
+  pointer-events: none;
   z-index: 10000;
-  pointer-events: none;
-  box-shadow: 0 0 10px var(--primary);
+  mix-blend-mode: normal;
+  will-change: transform;
+  filter: drop-shadow(0 0 8px rgba(255, 143, 163, 0.6));
 }
 
-.cursorTrail {
+.butterflySvg {
+  display: block;
+  will-change: transform;
+  transition: transform 0.12s ease;
+}
+
+/* Sparkle particles */
+.sparkle {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 32px;
-  height: 32px;
-  border: 1px solid var(--primary);
-  border-radius: 50%;
-  z-index: 9999;
   pointer-events: none;
-  background: rgba(var(--primary-rgb), 0.05);
-  backdrop-filter: blur(2px);
+  z-index: 9999;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ff8fa3, #800020, transparent);
+  box-shadow: 0 0 6px #ff8fa3, 0 0 12px #800020;
+  transform: translate(-50%, -50%);
+  animation: sparkleFade 0.7s ease-out forwards;
 }
 
+@keyframes sparkleFade {
+  0%   { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
+  60%  { opacity: 0.5; transform: translate(-50%, -70%) scale(0.8); }
+  100% { opacity: 0; transform: translate(-50%, -100%) scale(0); }
+}
+
+/* Hide on touch/mobile devices — butterflies need a mouse! */
 @media (max-width: 768px) {
-  .cursor, .cursorTrail {
+  .butterfly,
+  .sparkle {
     display: none;
   }
 }
