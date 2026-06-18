@@ -8,10 +8,10 @@ import img4 from "../../assets/crm.jpg";
 import img5 from "../../assets/shoes.jpg";
 
 const galleryData = [
-  { img: img1, title: "Modern Furniture", category: "E-Commerce", link: "https://e-commerce-elegant.netlify.app/" },
+  { img: img1, title: "Modern Furniture", category: "MERN E-Commerce", link: "https://e-commerce-elegant.netlify.app/" },
   { img: img2, title: "Floral Boutique", category: "Shopify Store", link: "https://flowerproject-store.netlify.app/" },
   { img: img3, title: "Addine Decor", category: "Interior Design", link: "https://addina-project.netlify.app/" },
-  { img: img4, title: "NextGen CRM", category: "SaaS Dashboard", link: "https://management-crm.netlify.app/" },
+  { img: img4, title: "NextGen CRM", category: "Full-Stack SaaS", link: "https://management-crm.netlify.app/" },
   { img: img5, title: "Elite Kicks", category: "Shoe Store", link: "https://shoes-task.netlify.app/" },
 ];
 

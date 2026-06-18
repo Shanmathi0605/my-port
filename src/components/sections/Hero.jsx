@@ -7,7 +7,7 @@ import MagneticButton from '../ui/MagneticButton';
 
 const Hero = () => {
   const [typedText, setTypedText] = useState('');
-  const fullText = "Frontend Developer | UI Designer";
+  const fullText = "Full Stack Developer | UI Designer";
   const [index, setIndex] = useState(0);
 
   useEffect(() => {

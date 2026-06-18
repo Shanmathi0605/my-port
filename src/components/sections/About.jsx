@@ -84,25 +84,25 @@ const About = ({ devMode }) => {
                {devMode ? "> SYSTEM_PROFILE" : "I build things for the web."}
             </h2>
             <p className={styles.bioText}>
-              I'm <span className={styles.nameHighlight}>Shanmathi R B</span>, a passionate  Front-End Developer based in India. My journey in the digital realm started with a curiosity for how pixels move, which led me to specialize in building fast, interactive, and user-friendly web applications.
+              I'm <span className={styles.nameHighlight}>Shanmathi R B</span>, a passionate Full-Stack Developer based in India. My journey in the digital realm started with a curiosity for how web systems work from front to back, leading me to specialize in building responsive interfaces, secure APIs, and robust database systems.
             </p>
 
             <div className={styles.detailsGrid}>
               <div className={styles.detailCol}>
                 <h4 className={styles.colTitle}>{devMode ? "_CORE_STACK" : "FOCUS"}</h4>
                 <ul className={styles.detailList}>
-                  <li><ChevronRight size={16} /> HTML</li>
-                  <li><ChevronRight size={16} /> CSS</li>
-                  <li><ChevronRight size={16} /> JS</li>
-                  <li><ChevronRight size={16} /> ReactJS</li>
+                  <li><ChevronRight size={16} /> React JS</li>
                   <li><ChevronRight size={16} /> Next JS</li>
+                  <li><ChevronRight size={16} /> Node.js & Express</li>
+                  <li><ChevronRight size={16} /> MongoDB / SQL</li>
+                  <li><ChevronRight size={16} /> JavaScript (ES6+)</li>
                 </ul>
               </div>
               <div className={styles.detailCol}>
                 <h4 className={styles.colTitle}>{devMode ? "_EDUCATION" : "CREDENTIALS"}</h4>
                 <ul className={styles.detailList}>
                   <li><ChevronRight size={16} /> B.Sc Computer Science</li>
-                  <li><ChevronRight size={16} /> Frontend Intern @ Softnova</li>
+                  <li><ChevronRight size={16} /> Full Stack Intern @ Softnova</li>
                 </ul>
               </div>
             </div>

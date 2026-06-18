@@ -3,9 +3,9 @@ import styles from './Marquee.module.css';
 
 const Marquee = () => {
   const words = [
-    "FRONT-END DEVELOPER",
+    "FULL-STACK DEVELOPER",
     "UI Designer",
-    "REACT Developer",
+    "MERN STACK DEVELOPER",
     "CREATIVE THINKER"
   ];
 

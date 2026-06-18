@@ -1,28 +1,28 @@
 import React from 'react';
 import styles from './Services.module.css';
 import { motion } from 'framer-motion';
-import { Layout, Codepen, Figma, Smartphone } from 'lucide-react';
+import { Layout, Server, Database } from 'lucide-react';
 
 const services = [
   {
     id: 1,
-    title: "Web Design",
-    description: "Creating visually stunning and intuitive digital interfaces that captivate users.",
+    title: "Frontend Development",
+    description: "Building fast, interactive, and responsive user interfaces using modern React and Next.js frameworks.",
     icon: <Layout size={40} />,
     color: "var(--primary)"
   },
   {
     id: 2,
-    title: "Frontend Development",
-    description: "Building fast, responsive, and accessible web applications using modern technologies.",
-    icon: <Codepen size={40} />,
+    title: "Backend Development",
+    description: "Creating secure, scalable server-side applications, robust APIs, and microservices using Node.js and Express.",
+    icon: <Server size={40} />,
     color: "var(--secondary)"
   },
   {
     id: 3,
-    title: "UX Strategy",
-    description: "Designing user journeys that are meaningful, effective, and conversion-focused.",
-    icon: <Figma size={40} />,
+    title: "Database & Integration",
+    description: "Designing optimized database structures (MongoDB, SQL) and establishing seamless third-party service connections.",
+    icon: <Database size={40} />,
     color: "var(--accent)"
   }
 ];

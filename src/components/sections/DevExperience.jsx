@@ -11,27 +11,27 @@ import { Terminal, Code, Cpu, Database, Globe, Layout, Layers, ExternalLink, Git
 
 const codeLines = [
   "INITIALIZING_CORE_SYSTEM...",
-  "CONNECTING_TO_USER_ASSETS...",
-  "LOADING_KERNEL_MODULES...",
-  "ANALYZING_SKILL_MATRIX...",
-  "FETCHING_PORTFOLIO_V2.0...",
-  "SUCCESS: ACCESS_GRANTED"
+  "CONNECTING_TO_DATABASE...",
+  "STARTING_EXPRESS_SERVER...",
+  "LOADING_REACT_COMPONENTS...",
+  "FETCHING_SKILL_MATRIX...",
+  "SUCCESS: FULL_STACK_ACTIVE"
 ];
 
 const skills = [
-  { name: 'HTML5', icon: <Globe size={40} />, color: '#E34F26', level: 95 },
-  { name: 'CSS3', icon: <Layout size={40} />, color: '#1572B6', level: 90 },
   { name: 'React', icon: <Cpu size={40} />, color: '#61DAFB', level: 92 },
+  { name: 'Node JS', icon: <Globe size={40} />, color: '#339933', level: 85 },
+  { name: 'MongoDB', icon: <Database size={40} />, color: '#47A248', level: 82 },
   { name: 'JavaScript', icon: <Code size={40} />, color: '#F7DF1E', level: 88 },
-  { name: 'Git', icon: <Database size={40} />, color: '#F05032', level: 80 },
-  { name: 'Framer Motion', icon: <Layers size={40} />, color: '#FF0055', level: 85 },
+  { name: 'Express JS', icon: <Layers size={40} />, color: '#FFFFFF', level: 80 },
+  { name: 'Git', icon: <Layout size={40} />, color: '#F05032', level: 80 },
 ];
 
  const galleryData = [
-   { img: img1, title: "Modern Furniture", category: "E-Commerce", link: "https://e-commerce-elegant.netlify.app/" },
+   { img: img1, title: "Modern Furniture", category: "MERN E-Commerce", link: "https://e-commerce-elegant.netlify.app/" },
    { img: img2, title: "Floral Boutique", category: "Shopify Store", link: "https://flowerproject-store.netlify.app/" },
    { img: img3, title: "Addine Decor", category: "Interior Design", link: "https://addina-project.netlify.app/" },
-   { img: img4, title: "NextGen CRM", category: "SaaS Dashboard", link: "https://management-crm.netlify.app/" },
+   { img: img4, title: "NextGen CRM", category: "Full-Stack SaaS", link: "https://management-crm.netlify.app/" },
    { img: img5, title: "Elite Kicks", category: "Shoe Store", link: "https://shoes-task.netlify.app/" },
  ];
 const DevExperience = ({ toggleDevMode, goToContact }) => {
