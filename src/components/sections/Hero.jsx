@@ -8,7 +8,6 @@ import MagneticButton from '../ui/MagneticButton';
 const Hero = ({ devMode: _devMode }) => {
   const [typedText, setTypedText] = useState('');
   const fullText = "Full Stack Developer | UI Designer";
-  const [index, setIndex] = useState(0);
 
   // Playground States
   const [activeTab, setActiveTab] = useState('react');
@@ -27,14 +26,55 @@ const Hero = ({ devMode: _devMode }) => {
   ]);
 
   useEffect(() => {
-    if (index < fullText.length) {
-      const timeout = setTimeout(() => {
-        setTypedText((prev) => prev + fullText[index]);
-        setIndex((prev) => prev + 1);
-      }, 100);
-      return () => clearTimeout(timeout);
+    let currentIdx = 0;
+    const interval = setInterval(() => {
+      setTypedText(fullText.slice(0, currentIdx + 1));
+      currentIdx++;
+      if (currentIdx >= fullText.length) {
+        clearInterval(interval);
+      }
+    }, 100);
+    return () => clearInterval(interval);
+  }, []);
+
+  const renderTypedSubtitle = () => {
+    const pipeIndex = typedText.indexOf('|');
+    if (pipeIndex === -1) {
+      return (
+        <span className={styles.subtitlePart}>
+          {typedText.slice(0, -1)}
+          <span style={{ whiteSpace: 'nowrap' }}>
+            {typedText.slice(-1)}
+            <span className={styles.cursorMark}>|</span>
+          </span>
+        </span>
+      );
     }
-  }, [index]);
+
+    const part1 = typedText.substring(0, pipeIndex).trim();
+    const part2 = typedText.substring(pipeIndex + 1).trim();
+
+    return (
+      <>
+        <span className={styles.subtitlePart}>{part1}</span>
+        <span className={styles.subtitlePipe}> | </span>
+        {part2 && (
+          <span className={styles.subtitlePart}>
+            {part2.slice(0, -1)}
+            <span style={{ whiteSpace: 'nowrap' }}>
+              {part2.slice(-1)}
+              <span className={styles.cursorMark}>|</span>
+            </span>
+          </span>
+        )}
+        {!part2 && (
+          <span className={styles.subtitlePart}>
+            <span className={styles.cursorMark}>|</span>
+          </span>
+        )}
+      </>
+    );
+  };
 
   // Terminal Runner Simulation
   const handleRunApi = () => {
@@ -99,8 +139,7 @@ const Hero = ({ devMode: _devMode }) => {
             <span className={styles.nameHighlight}>Shanmathi</span>
           </h1>
           <p className={styles.heroSubtitle}>
-            {typedText}
-            <span className={styles.cursorMark}>|</span>
+            {renderTypedSubtitle()}
           </p>
 
           <p className={styles.heroBio}>

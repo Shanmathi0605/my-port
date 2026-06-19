@@ -245,7 +245,7 @@
 }
 
 @media (max-width: 480px) {
-  .skillsSection { padding: 5rem 1rem; }
+  .skillsSection { padding: 2rem 1rem; }
   .title { font-size: 2.1rem; }
   .filterBtn { padding: 0.45rem 1rem; font-size: 0.78rem; }
   .skillCard { padding: 1rem; border-radius: 18px; }

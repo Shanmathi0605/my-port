@@ -371,7 +371,7 @@
   
   .aboutHeader {
     grid-template-columns: 1fr;
-    gap: 4rem;
+   
     text-align: center;
   }
   
@@ -447,7 +447,7 @@
 
 @media (max-width: 480px) {
   .aboutSection {
-    padding: 5rem 1rem;
+    padding: 4rem 1rem;
   }
 
   .mainHeading {
