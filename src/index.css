@@ -66,6 +66,12 @@ body {
   line-height: 1.6;
 }
 
+#root, .main-content {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+}
+
 /* Global section padding variable */
 :root {
   --section-padding: 8rem 2rem 8rem 7rem;

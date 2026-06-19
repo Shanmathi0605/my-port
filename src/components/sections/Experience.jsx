@@ -8,54 +8,44 @@ const experienceData = [
     type: 'work',
     title: 'Full Stack Developer',
     company: 'Freelance',
-    period: '2024 – Present',
+    period: 'May 2026-Present',
     location: 'Remote',
-    description: 'Developed and deployed full-stack web applications for clients across e-commerce, CRM, and interior design domains. Built MERN stack solutions with JWT auth, payment integrations, and responsive UIs.',
+    description: 'A Full Stack Developer designs and develops complete web applications by working on both the front-end and back-end. They use technologies like React.js, Node.js, Express.js, MongoDB, and REST APIs to build scalable, secure, and high-performance applications while managing databases, authentication, and deployment.',
     tags: ['React', 'Node.js', 'MongoDB', 'Express', 'Netlify'],
     icon: <Code2 size={18} />,
   },
   {
     type: 'work',
-    title: 'Web Developer Intern',
-    company: 'Tech Startup',
-    period: '2023 – 2024',
+    title: 'Front-End Developer Intern',
+    company: 'Softnova Technology',
+    period: '2025 – Present',
     location: 'Tamil Nadu, India',
-    description: 'Worked on frontend development using React and contributed to backend REST APIs with Node.js. Gained hands-on experience with database design, Docker containers, and agile workflows.',
+    description: 'A Front-End Developer builds responsive, interactive, and user-friendly web interfaces using modern technologies such as HTML, CSS, JavaScript, React.js, and Bootstrap. They focus on creating visually appealing designs, optimizing performance, and ensuring seamless user experiences across different devices and browsers.',
     tags: ['React', 'Node.js', 'Docker', 'REST APIs', 'PostgreSQL'],
     icon: <Briefcase size={18} />,
   },
   {
     type: 'education',
-    title: 'B.Tech – Computer Science',
-    company: 'Anna University',
-    period: '2021 – 2025',
+    title: 'BSC – Computer Science',
+    company: 'Bharathidasan University',
+    period: '2022 – 2025',
     location: 'Tamil Nadu, India',
-    description: 'Studied core CS fundamentals including data structures, algorithms, operating systems, and software engineering. Built multiple full-stack projects and participated in technical events and hackathons.',
-    tags: ['DSA', 'DBMS', 'OS', 'Software Engineering', 'Java'],
+    description: 'Completed a comprehensive undergraduate program covering programming, database management, software development, web technologies, data structures, algorithms, networking, and computer systems. Developed strong analytical, problem-solving, and technical skills through academic projects and practical learning.',
+    tags: ['DSA', 'DBMS', 'OS', 'Java', 'Algorithm'],
     icon: <GraduationCap size={18} />,
   },
-  {
-    type: 'achievement',
-    title: 'Open Source Contributor',
-    company: 'GitHub Community',
-    period: '2023 – Present',
-    location: 'Global',
-    description: 'Contributed to open source repositories with bug fixes and feature additions. Maintained personal repositories with 5+ live production projects deployed on Netlify.',
-    tags: ['Open Source', 'GitHub', 'Netlify', 'CI/CD'],
-    icon: <Award size={18} />,
-  },
+
 ];
 
 const typeColors = {
   work: 'var(--primary)',
   education: '#3b82f6',
-  achievement: '#10b981',
 };
 
 const Experience = () => {
   const [activeFilter, setActiveFilter] = useState('all');
 
-  const filters = ['all', 'work', 'education', 'achievement'];
+  const filters = ['all', 'work', 'education', ];
 
   const filtered = activeFilter === 'all'
     ? experienceData

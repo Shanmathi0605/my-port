@@ -349,3 +349,16 @@
     padding: 0.25rem 0.5rem;
   }
 }
+
+@media (max-width: 400px) {
+  .bottomDock {
+    padding: 0.4rem 0.8rem;
+  }
+  .dockLinks {
+    gap: 0.8rem;
+  }
+  .dockItem {
+    width: 28px;
+    height: 28px;
+  }
+}
