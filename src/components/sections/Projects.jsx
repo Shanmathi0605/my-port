@@ -6,13 +6,14 @@ import img2 from "../../assets/flowers.jpg";
 import img3 from "../../assets/shofa.jpg";
 import img4 from "../../assets/crm.jpg";
 import img5 from "../../assets/shoes.jpg";
+import img6 from "../../assets/placement_portal.png";
 
 const galleryData = [
   { 
     img: img1, 
     title: "Modern Furniture", 
     category: "MERN E-Commerce", 
-    filter: "full-stack",
+    filter: "e-commerce",
     description: "A sleek MERN stack e-commerce app with secure payment integrations, JWT authentication, and automated admin dashboards.",
     link: "https://e-commerce-elegant.netlify.app/" 
   },
@@ -28,7 +29,7 @@ const galleryData = [
     img: img3, 
     title: "Addine Decor", 
     category: "Interior Design", 
-    filter: "frontend",
+    filter: "react",
     description: "Premium interior design showcase leveraging React and smooth scroll animations for a clean, editorial look.",
     link: "https://addina-project.netlify.app/" 
   },
@@ -36,7 +37,7 @@ const galleryData = [
     img: img4, 
     title: "NextGen CRM", 
     category: "Full-Stack SaaS", 
-    filter: "full-stack",
+    filter: "mern",
     description: "Enterprise dashboard for client relations featuring analytics widgets, team action logs, and modern UX design.",
     link: "https://management-crm.netlify.app/" 
   },
@@ -48,9 +49,17 @@ const galleryData = [
     description: "High-performance online sneaker store featuring animated transitions, dynamic multi-attribute filters, and custom cart states.",
     link: "https://shoes-task.netlify.app/" 
   },
+  { 
+    img: img6, 
+    title: "Placement Portal", 
+    category: "MERN Full-Stack / Backend", 
+    filter: "mern",
+    description: "Robust student placement system featuring secure JWT authentication, student profile creation, department/batch segmentation, and a dashboard for managing applications.",
+    link: "https://school-system-ashen-alpha.vercel.app/" 
+  },
 ];
 
-const filters = ["all", "full-stack", "frontend", "e-commerce"];
+const filters = ["all", "react", "mern", "e-commerce"];
 
 const Gallery = () => {
   const [activeFilter, setActiveFilter] = useState("all");
@@ -85,7 +94,7 @@ const Gallery = () => {
               className={`${styles.filterBtn} ${activeFilter === f ? styles.activeFilter : ""}`}
               onClick={() => setActiveFilter(f)}
             >
-              {f === "all" ? "All" : f === "full-stack" ? "Full-Stack" : f === "frontend" ? "Frontend" : "E-Commerce"}
+              {f === "all" ? "All" : f === "react" ? "React Project" : f === "mern" ? "MERN Full Stack" : "E-Commerce"}
             </button>
           ))}
         </div>

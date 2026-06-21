@@ -7,6 +7,7 @@ import img2 from '../../assets/flowers.jpg';
 import img3 from '../../assets/shofa.jpg';
 import img4 from '../../assets/crm.jpg';
 import img5 from '../../assets/shoes.jpg';
+import img6 from '../../assets/placement_portal.png';
 import { Terminal, Code, Cpu, Database, Globe, Layout, Layers, ExternalLink, Github, Mail, Send, MapPin, X } from 'lucide-react';
 
 const codeLines = [
@@ -33,6 +34,7 @@ const skills = [
    { img: img3, title: "Addine Decor", category: "Interior Design", link: "https://addina-project.netlify.app/" },
    { img: img4, title: "NextGen CRM", category: "Full-Stack SaaS", link: "https://management-crm.netlify.app/" },
    { img: img5, title: "Elite Kicks", category: "Shoe Store", link: "https://shoes-task.netlify.app/" },
+   { img: img6, title: "Placement Portal", category: "MERN Full-Stack / Backend", link: "https://school-system-ashen-alpha.vercel.app/" },
  ];
 const DevExperience = ({ toggleDevMode, goToContact }) => {
   const containerRef = useRef(null);
