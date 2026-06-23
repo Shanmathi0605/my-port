@@ -64,20 +64,18 @@ const Skills = () => {
           ))}
         </div>
 
-        <motion.div 
-          className={styles.skillsGrid}
-          layout
-        >
-          <AnimatePresence>
-            {filteredSkills.map((skill, index) => (
-              <motion.div
+        <AnimatePresence mode="wait">
+          <motion.div 
+            key={filter}
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -15 }}
+            transition={{ duration: 0.3 }}
+            className={styles.skillsGrid}
+          >
+            {filteredSkills.map((skill) => (
+              <div
                 key={skill.name}
-                layout
-                initial={{ opacity: 0, y: 30, scale: 0.95 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: false, amount: 0.2 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.5, delay: index * 0.05, ease: 'easeOut' }}
                 className={styles.skillCard}
               >
                 <div className={styles.cardHeader}>
@@ -92,18 +90,18 @@ const Skills = () => {
                           className={styles.progressFill}
                           initial={{ width: 0 }}
                           whileInView={{ width: `${skill.level}%` }}
-                          viewport={{ once: false }}
-                          transition={{ duration: 1.5, ease: "easeOut" }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 1.2, ease: "easeOut" }}
                         />
                       </div>
                       <span className={styles.percentage}>{skill.level}%</span>
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
-          </AnimatePresence>
-        </motion.div>
+          </motion.div>
+        </AnimatePresence>
       </div>
     </section>
   );
