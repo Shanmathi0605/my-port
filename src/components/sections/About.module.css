@@ -1,6 +1,6 @@
 /* About.module.css - Burgundy Red Edition */
 .aboutSection {
-  padding: 10rem 2rem;
+  padding: 10rem 4rem;
  
   position: relative;
   overflow: hidden;
@@ -38,6 +38,8 @@
   opacity: 0.9;
   pointer-events: none;
   animation: floatHeading 6s ease-in-out infinite;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
 }
 
 @keyframes floatHeading {

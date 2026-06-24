@@ -86,19 +86,32 @@ const CustomCursor = () => {
       setFlap(f => !f);
     }, 160);
 
+    let lastSparkleTime = 0;
+    let clearTimer;
+
     const handleMouseMove = (e) => {
+      // Update motion values (bypasses React render for ultra-smooth movement)
       cursorX.set(e.clientX - 26);
       cursorY.set(e.clientY - 22);
 
-      // Tiny sparkle trail every ~200ms
-      const id = ++sparkleId.current;
-      const s = {
-        id,
-        x: e.clientX + (Math.random() - 0.5) * 16,
-        y: e.clientY + (Math.random() - 0.5) * 16,
-      };
-      setSparkles(prev => [...prev.slice(-7), s]);
-      setTimeout(() => setSparkles(prev => prev.filter(sp => sp.id !== id)), 700);
+      const now = Date.now();
+      if (now - lastSparkleTime > 75) {
+        lastSparkleTime = now;
+
+        const id = ++sparkleId.current;
+        const s = {
+          id,
+          x: e.clientX + (Math.random() - 0.5) * 16,
+          y: e.clientY + (Math.random() - 0.5) * 16,
+        };
+        setSparkles(prev => [...prev.slice(-6), s]);
+
+        // Debounce the cleanup of all sparkles once the mouse stops moving
+        clearTimeout(clearTimer);
+        clearTimer = setTimeout(() => {
+          setSparkles([]);
+        }, 800);
+      }
     };
 
     const handleMouseOver = (e) => {

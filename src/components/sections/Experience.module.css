@@ -1,5 +1,5 @@
 .section {
-  padding: 2rem 2rem 2rem 7rem;
+  padding: 2rem 4rem;
   position: relative;
   overflow: hidden;
 }
@@ -45,7 +45,6 @@
   margin: 0 auto;
   position: relative;
   z-index: 1;
-  padding-left: 100px;
 }
 
 .header {

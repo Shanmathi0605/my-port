@@ -69,7 +69,6 @@ const filters = ["all", "react", "mern", "e-commerce"];
 
 const Gallery = () => {
   const [activeFilter, setActiveFilter] = useState("all");
-  const [activeIndex, setActiveIndex] = useState(0);
 
   const filtered = activeFilter === "all"
     ? galleryData
@@ -77,7 +76,6 @@ const Gallery = () => {
 
   const handleFilterClick = (f) => {
     setActiveFilter(f);
-    setActiveIndex(0);
   };
 
   return (
@@ -118,64 +116,53 @@ const Gallery = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -15 }}
             transition={{ duration: 0.4 }}
-            className={styles.accordionContainer}
+            className={styles.projectGrid}
           >
-            {filtered.map((project, index) => {
-              const isActive = activeIndex === index;
-              return (
-                <div
-                  key={project.title}
-                  className={`${styles.panel} ${isActive ? styles.activePanel : ""}`}
-                  onMouseEnter={() => setActiveIndex(index)}
-                  onClick={() => setActiveIndex(index)}
-                >
-                  <div className={styles.panelImageContainer}>
-                    <img src={project.img} alt={project.title} className={styles.panelImage} />
-                    <div className={styles.panelOverlay} />
-                  </div>
-
-                  {/* Collapsed Vertical Title */}
-                  <div className={styles.collapsedHeader}>
-                    <span className={styles.collapsedNumber}>0{index + 1}</span>
-                    <h3 className={styles.collapsedTitle}>{project.title}</h3>
-                  </div>
-
-                  {/* Expanded Glassmorphic Content Card */}
-                  <div className={styles.expandedContent}>
-                    <div className={styles.expandedInner}>
-                      <div className={styles.expandedHeader}>
-                        <span className={styles.indexBadge}>0{index + 1}</span>
-                        <span className={styles.categoryBadge}>{project.category}</span>
-                      </div>
-                      
-                      <h3 className={styles.title}>{project.title}</h3>
-                      
-                      {project.tags && (
-                        <div className={styles.tagList}>
-                          {project.tags.map(tag => (
-                            <span key={tag} className={styles.tagBadge}>{tag}</span>
-                          ))}
-                        </div>
-                      )}
-                      
-                      <p className={styles.description}>{project.description}</p>
-                      
-                      <a
-                        href={project.link}
-                        target="_blank"
-                        rel="noreferrer"
-                        className={styles.viewLink}
-                      >
-                        <span>Visit Site</span>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-                        </svg>
-                      </a>
-                    </div>
-                  </div>
+            {filtered.map((project, index) => (
+              <motion.div
+                key={project.title}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.05 }}
+                className={styles.projectCard}
+              >
+                <div className={styles.cardImageContainer}>
+                  <img src={project.img} alt={project.title} className={styles.cardImage} />
+                  <div className={styles.cardOverlay} />
+                  <span className={styles.indexBadge}>0{index + 1}</span>
                 </div>
-              );
-            })}
+
+                <div className={styles.cardContent}>
+                  <div className={styles.cardHeader}>
+                    <span className={styles.categoryBadge}>{project.category}</span>
+                  </div>
+                  
+                  <h3 className={styles.cardTitle}>{project.title}</h3>
+                  
+                  <p className={styles.cardDescription}>{project.description}</p>
+                  
+                  {project.tags && (
+                    <div className={styles.tagList}>
+                      {project.tags.map(tag => (
+                        <span key={tag} className={styles.tagBadge}>{tag}</span>
+                      ))}
+                    </div>
+                  )}
+                  
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={styles.viewLink}
+                  >
+                    <span>Live Demo</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </a>
+                </div>
+              </motion.div>
+            ))}
           </motion.div>
         </AnimatePresence>
       </div>

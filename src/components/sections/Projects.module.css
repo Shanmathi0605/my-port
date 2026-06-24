@@ -1,5 +1,5 @@
 .gallerySection {
-  padding: 2rem 2rem 8rem 7rem;
+  padding: 2rem 4rem 8rem 4rem;
   position: relative;
   overflow: hidden;
 }
@@ -15,6 +15,8 @@
   opacity: 0.9;
   pointer-events: none;
   animation: floatHeading 6s ease-in-out infinite;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
 }
 
 @keyframes floatHeading {
@@ -111,160 +113,99 @@
   box-shadow: 0 0 20px var(--glow-primary);
 }
 
-.accordionContainer {
-  display: flex;
-  gap: 1rem;
+.projectGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
   width: 100%;
-  height: 550px;
-  justify-content: center;
   margin-top: 2rem;
-  padding-left: 100px; /* Leave space for PROJECTS watermark on desktop */
 }
 
-.panel {
+.projectCard {
   position: relative;
-  overflow: hidden;
-  border-radius: 20px;
-  border: 1px solid var(--glass-border);
-  background: rgba(10, 10, 10, 0.4);
-  cursor: pointer;
   display: flex;
   flex-direction: column;
-  flex: 0.8;
-  height: 100%;
-  transition: flex 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.4s ease,
-              box-shadow 0.4s ease;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-}
-
-.activePanel {
-  flex: 3.5;
-  border-color: var(--primary);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 20px var(--glow-primary);
-}
-
-.panelImageContainer {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
+  border-radius: 20px;
   overflow: hidden;
+  background: rgba(15, 10, 12, 0.45);
+  border: 1px solid rgba(var(--primary-rgb), 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.4s ease,
+              box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  height: 100%;
 }
 
-.panelImage {
+.projectCard:hover {
+  transform: translateY(-10px);
+  border-color: var(--accent);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 25px rgba(var(--primary-rgb), 0.35);
+}
+
+.cardImageContainer {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(var(--primary-rgb), 0.15);
+}
+
+.cardImage {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: grayscale(0.7) brightness(0.3) contrast(1.1);
+  filter: grayscale(0.4) brightness(0.8) contrast(1.05);
   transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
               filter 0.8s ease;
 }
 
-.activePanel .panelImage {
-  filter: grayscale(0) brightness(0.7) contrast(1);
-  transform: scale(1.05);
+.projectCard:hover .cardImage {
+  filter: grayscale(0) brightness(0.9) contrast(1);
+  transform: scale(1.08);
 }
 
-.panelOverlay {
+.cardOverlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, transparent 40%, rgba(0, 0, 0, 0.8) 100%);
-  z-index: 2;
+  background: linear-gradient(to bottom, transparent 60%, rgba(5, 5, 5, 0.8) 100%);
+  z-index: 1;
   pointer-events: none;
-}
-
-.collapsedHeader {
-  position: absolute;
-  inset: 0;
-  z-index: 3;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 30px 20px;
-  pointer-events: none;
-  opacity: 1;
-  transition: opacity 0.4s ease;
-}
-
-.activePanel .collapsedHeader {
-  opacity: 0;
-}
-
-.collapsedNumber {
-  font-family: monospace;
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--primary);
-  letter-spacing: 2px;
-  text-align: center;
-}
-
-.collapsedTitle {
-  writing-mode: vertical-rl;
-  text-orientation: mixed;
-  transform: rotate(180deg);
-  font-size: 1.4rem;
-  font-weight: 800;
-  color: var(--text-dim);
-  white-space: nowrap;
-  margin: auto 0;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  transition: color 0.3s ease;
-}
-
-.panel:hover .collapsedTitle {
-  color: var(--primary);
-}
-
-.expandedContent {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 4;
-  padding: 24px;
-  opacity: 0;
-  transform: translateY(20px);
-  pointer-events: none;
-  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.activePanel .expandedContent {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: all;
-}
-
-.expandedInner {
-  background: var(--glass);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  border: 1px solid var(--glass-border);
-  border-radius: 16px;
-  padding: 24px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.expandedHeader {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 
 .indexBadge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 2;
   font-family: monospace;
-  font-size: 0.85rem;
-  color: var(--primary);
-  border: 1px solid var(--primary);
-  padding: 2px 8px;
-  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent);
+  background: rgba(var(--primary-rgb), 0.75);
+  border: 1px solid rgba(var(--accent-rgb), 0.4);
+  padding: 4px 10px;
+  border-radius: 6px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   letter-spacing: 1px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.cardContent {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 8px;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: -4px;
 }
 
 .categoryBadge {
@@ -275,157 +216,152 @@
   font-weight: 700;
 }
 
-.title {
-  font-size: 1.5rem;
+.cardTitle {
+  font-size: 1.3rem;
   font-weight: 800;
   color: #fff;
   margin: 0;
+  line-height: 1.2;
+  transition: color 0.3s ease;
+}
+
+.projectCard:hover .cardTitle {
+  color: var(--accent);
+}
+
+.cardDescription {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  line-height: 1.45;
+  margin: 0;
+  flex-grow: 1;
 }
 
 .tagList {
   display: flex;
-  gap: 8px;
+  gap: 6px;
   flex-wrap: wrap;
   margin: 4px 0;
 }
 
 .tagBadge {
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-family: monospace;
-  background: rgba(var(--primary-rgb), 0.15);
-  border: 1px solid rgba(var(--primary-rgb), 0.3);
-  color: var(--accent);
-  padding: 2px 8px;
-  border-radius: 4px;
-  font-weight: 600;
-  text-transform: uppercase;
+  background: rgba(var(--primary-rgb), 0.12);
+  border: 1px solid rgba(var(--primary-rgb), 0.25);
+  color: rgba(255, 255, 255, 0.85);
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: all 0.3s ease;
 }
 
-.description {
-  font-size: 0.85rem;
-  color: var(--text-dim);
-  line-height: 1.5;
-  margin: 0;
+.projectCard:hover .tagBadge {
+  border-color: rgba(var(--accent-rgb), 0.4);
+  background: rgba(var(--primary-rgb), 0.2);
+  color: #fff;
 }
 
 .viewLink {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
-  color: var(--primary);
+  color: #fff;
   font-weight: 700;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   letter-spacing: 1px;
   text-transform: uppercase;
   text-decoration: none;
-  transition: all 0.3s ease;
-  margin-top: 8px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  margin-top: 6px;
+  padding: 8px 16px;
+  border-radius: 10px;
+  background: rgba(var(--primary-rgb), 0.3);
+  border: 1px solid rgba(var(--primary-rgb), 0.5);
   align-self: flex-start;
+  width: 100%;
+  text-align: center;
 }
 
 .viewLink:hover {
-  color: var(--accent);
-  text-shadow: 0 0 10px var(--glow-primary);
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  border-color: var(--accent);
+  box-shadow: 0 0 15px var(--glow-primary);
+  color: #fff;
 }
 
 .viewLink svg {
-  transition: transform 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .viewLink:hover svg {
-  transform: translateX(5px);
+  transform: translateX(4px);
 }
 
-@media (max-width: 1024px) {
-  .header h2 { font-size: 3rem; }
-}
-
-@media (max-width: 900px) {
-  .gallerySection { padding: 2rem 1.5rem 6rem 1.5rem; }
-  .sectionHeading { display: none; }
-  .container { padding-left: 0; padding: 0 20px; }
-  
-  .accordionContainer {
-    flex-direction: column;
-    height: auto;
-    gap: 1.25rem;
+@media (max-width: 1100px) {
+  .projectGrid {
+    grid-template-columns: repeat(2, 1fr);
     padding-left: 0;
-    margin-top: 1rem;
   }
   
-  .panel {
-    flex: none;
-    width: 100%;
-    height: 80px;
-    transition: height 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-                border-color 0.4s ease,
-                box-shadow 0.4s ease;
+  .sectionHeading {
+    display: none;
   }
   
-  .activePanel {
-    height: 420px;
-  }
-  
-  .collapsedHeader {
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 20px;
-    padding: 0 24px;
-    height: 80px;
-  }
-  
-  .collapsedTitle {
-    writing-mode: horizontal-tb;
-    transform: none;
-    font-size: 1.15rem;
-    margin: 0;
-    letter-spacing: 1px;
-  }
-  
-  .collapsedNumber {
-    font-size: 1.1rem;
-  }
-  
-  .expandedContent {
-    top: 80px; /* Offset the header height */
-    bottom: 0;
-    padding: 12px 16px 16px 16px;
-    height: calc(100% - 80px);
-  }
-  
-  .expandedInner {
-    padding: 16px;
-    height: 100%;
-    justify-content: center;
-    gap: 8px;
-  }
-  
-  .title {
-    font-size: 1.25rem;
-  }
-  
-  .description {
-    font-size: 0.8rem;
+  .gallerySection {
+    padding: 6rem 2rem;
   }
 }
 
 @media (max-width: 768px) {
-  .header h2 { font-size: 2.25rem; }
-  .header { margin-bottom: 30px; }
-  .filterRow { gap: 8px; margin-bottom: 28px; }
-  .filterBtn { padding: 6px 16px; font-size: 0.8rem; }
-  .subtitle { font-size: 0.95rem; }
+  .projectGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .gallerySection {
+    padding: 4rem 1.5rem;
+  }
+  
+  .header h2 {
+    font-size: 2.25rem;
+  }
+  
+  .header {
+    margin-bottom: 30px;
+  }
+  
+  .filterRow {
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+  
+  .filterBtn {
+    padding: 6px 16px;
+    font-size: 0.8rem;
+  }
+  
+  .subtitle {
+    font-size: 0.95rem;
+  }
 }
 
 @media (max-width: 480px) {
-  .gallerySection { padding: 1.5rem 1rem 5rem 1rem; }
-  .header h2 { font-size: 2rem; }
-  .filterBtn { padding: 5px 12px; font-size: 0.75rem; }
-  .activePanel {
-    height: 460px; /* Extra height space for small screens with wrapped text */
+  .gallerySection {
+    padding: 4rem 1rem;
   }
-  .expandedInner {
-    padding: 12px;
+  
+  .header h2 {
+    font-size: 2rem;
   }
-}
+  
+  .filterBtn {
+    padding: 5px 12px;
+    font-size: 0.75rem;
+  }
+  
+  .cardContent {
+    padding: 18px;
+  }
+}

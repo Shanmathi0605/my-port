@@ -51,16 +51,10 @@ class Particle {
     const alpha = this.opacity * pulse;
 
     if (this.glow) {
-      // outer glow
-      const grad = ctx.createRadialGradient(
-        this.x, this.y, 0,
-        this.x, this.y, this.size * 6
-      );
-      grad.addColorStop(0, `${this.color} ${(alpha * 0.8).toFixed(2)})`);
-      grad.addColorStop(1, `${this.color} 0)`);
+      // outer glow - optimized by using a larger translucent circle instead of creating a heavy radial gradient on every frame
       ctx.beginPath();
-      ctx.arc(this.x, this.y, this.size * 6, 0, Math.PI * 2);
-      ctx.fillStyle = grad;
+      ctx.arc(this.x, this.y, this.size * 5, 0, Math.PI * 2);
+      ctx.fillStyle = `${this.color} ${(alpha * 0.12).toFixed(2)})`;
       ctx.fill();
     }
 
@@ -94,7 +88,6 @@ const Background = ({ devMode }) => {
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       particlesRef.current.forEach(p => {
-        p.canvas = canvas; // keep ref fresh after resize
         p.update();
         p.draw(ctx);
       });
