@@ -228,7 +228,7 @@
 }
 
 @media (max-width: 968px) {
-  .skillsSection { padding: 6rem 1.5rem 2rem 1.5rem; }
+  .skillsSection { padding: 4rem 1.5rem 2rem 1.5rem; }
   .decorativeNumber, .verticalTitle, .sectionHeading { display: none; }
   .skillsGrid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
 }
@@ -318,7 +318,7 @@
 }
 
 @media (max-width: 480px) {
-  .skillsSection { padding: 3rem 1rem 1.5rem 1rem; }
+  .skillsSection { padding: 2.5rem 1rem 1.5rem 1rem; }
   .title { font-size: 2.1rem; }
   .filterBtn { padding: 0.45rem 1rem; font-size: 0.78rem; }
   .skillsGrid {

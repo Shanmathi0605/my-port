@@ -368,7 +368,7 @@
 
 @media (max-width: 968px) {
   .aboutSection {
-    padding: 6rem 1.5rem;
+    padding: 4rem 1.5rem;
   }
   
   .aboutHeader {
@@ -404,7 +404,7 @@
 
 @media (max-width: 640px) {
   .aboutSection {
-    padding: 5rem 1.5rem;
+    padding: 3rem 1.5rem;
   }
 
   .mainHeading {
@@ -449,7 +449,7 @@
 
 @media (max-width: 480px) {
   .aboutSection {
-    padding: 4rem 1rem;
+    padding: 2.5rem 1rem;
   }
 
   .mainHeading {

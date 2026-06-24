@@ -546,7 +546,7 @@
 
 @media (max-width: 968px) {
   .heroSection {
-    padding: 120px 1.5rem 60px;
+    padding: 80px 1.5rem 40px;
   }
   .heroContent {
     grid-template-columns: minmax(0, 1fr);
@@ -573,7 +573,7 @@
 
 @media (max-width: 768px) {
   .heroSection {
-    padding: 100px 1.5rem 40px;
+    padding: 70px 1.5rem 30px;
   }
   
   .heroTitle {
@@ -628,7 +628,7 @@
 
 @media (max-width: 480px) {
   .heroSection {
-    padding: 90px 1rem 40px;
+    padding: 60px 1rem 30px;
   }
 
   .heroTitle {

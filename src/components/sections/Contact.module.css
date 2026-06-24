@@ -566,7 +566,7 @@
 }
 
 @media (max-width: 968px) {
-  .contactSection { padding: 6rem 1.5rem; }
+  .contactSection { padding: 4rem 1.5rem; }
   .decorativeNumber, .verticalTitle, .englishBack, .sectionHeading { display: none; }
   .grid { grid-template-columns: 1fr; gap: 3rem; }
   .header { margin-bottom: 3rem; }
@@ -576,7 +576,7 @@
 }
 
 @media (max-width: 768px) {
-  .contactSection { padding: 5.5rem 1.2rem; }
+  .contactSection { padding: 3.5rem 1.2rem; }
   .formWrapper { padding: 1.75rem; border-radius: 20px; }
   .title { font-size: 2.2rem; }
   .subtitle { font-size: 0.95rem; }
@@ -588,7 +588,7 @@
 }
 
 @media (max-width: 480px) {
-  .contactSection { padding: 5rem 1rem; }
+  .contactSection { padding: 2.5rem 1rem; }
   .formWrapper { padding: 1.25rem; border-radius: 16px; }
   .inputGroup input, .inputGroup textarea { padding: 0.75rem 0.9rem; font-size: 0.85rem; }
   .title { font-size: 1.9rem; }
